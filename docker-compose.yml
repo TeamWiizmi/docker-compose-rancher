@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  rancher:
+    image: rancher/server:latest
+    container_name: rancher-server
+    restart: unless-stopped
+    volumes:
+      - cattle_data:/var/lib/cattle
+      - mysql_data:/var/lib/mysql
+      - mysql_log:/var/log/mysql
+    ports:
+      - 8080:8080
+
+volumes:
+  cattle_data: {}
+  mysql_data: {}
+  mysql_log: {}
